@@ -6,12 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillabel = 
-    [
-       'nama',
-        'nim',
-        'email',
-        'jurusan'
-
-];
+    protected $fillable = ['nama', 'nim', 'email', 'jurusan'];
 }
