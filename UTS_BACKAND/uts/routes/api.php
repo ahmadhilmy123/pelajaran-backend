@@ -6,18 +6,21 @@ use App\Http\Controllers\AuthController;
 
 
 
-
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
-Route::post('logout', [AuthController::class, 'logout']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::get('/karyawan', [KaryawanController::class, 'index']);
-Route::post('/karyawan', [KaryawanController::class, 'store']);
-Route::get('/karyawan/{id}', [KaryawanController::class, 'show']);
-Route::put('/karyawan/{id}', [KaryawanController::class, 'update']);
-Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy']);
-Route::get('/karyawan/search/{name}', [KaryawanController::class, 'search']);
-Route::get('/karyawan/status/active', [KaryawanController::class, 'active']);
-Route::get('/karyawan/status/inactive', [KaryawanController::class, 'inactive']);
-Route::get('/karyawan/status/terminated', [KaryawanController::class, 'terminated']);
+Route::middleware('auth:sanctum')->group(function () {
+Route::post('/logout', [AuthController::class, 'logout']);
+    
+    
+    Route::get('/karyawan', [KaryawanController::class, 'index']);
+    Route::post('/karyawan', [KaryawanController::class, 'store']);
+    Route::get('/karyawan/{id}', [KaryawanController::class, 'show']);
+    Route::put('/karyawan/{id}', [KaryawanController::class, 'update']);
+    Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy']);
+    Route::get('/karyawan/cari/{nama}', [KaryawanController::class, 'search']);
+    Route::get('/karyawan/status/aktif', [KaryawanController::class, 'aktif']);
+    Route::get('/karyawan/status/nonaktif', [KaryawanController::class, 'nonaktif']);
+    Route::get('/karyawan/status/diberhentikan', [KaryawanController::class, 'diberhentikan']);
+});

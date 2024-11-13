@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('status');
             $table->date('hired_on');
-            $table->string('password'); 
             $table->timestamps();
         });
     }

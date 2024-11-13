@@ -20,14 +20,10 @@ class Karyawan extends Authenticatable
         'email',
         'status',
         'hired_on',
-        'password'
     ];
 
     protected $casts = [
         'hired_on' => 'date',
     ];
 
-    protected $hidden = [
-        'password',
-    ];
 }
