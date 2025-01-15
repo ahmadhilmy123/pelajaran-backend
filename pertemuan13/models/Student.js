@@ -74,5 +74,4 @@ class Student {
   }
 }
 
-// export class Student
 module.exports = Student;
